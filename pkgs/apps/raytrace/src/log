@@ -1,0 +1,402 @@
+this =0x7213e0
+PARSEC Benchmark Suite
+initializing LRT ray tracer ...
+default BVH builder : binnedalldimssavespace
+
+
+Options:  automove = ;
+    files = happy_buddha.obj;
+   frames = 3;
+ nthreads = 4;
+      res = [1920, 1080];
+
+Using memory framebuffer...
+Adding obj file: happy_buddha.obj
+Using auto camera...
+num nodes in scene graph 1
+adding 543522 vertices
+adding 1087425 triangles
+finalizing geometry
+vertices            543522 (6369.4 KB)
+triangles           1087425 (12743.3 KB)
+texture coordinates 0 (0 KB)
+No materials -> create dummy material
+building index
+using BVH builder default
+build time 2.74443
+done
+sceneAABB =[[[-0.04615,0.049738,-0.047301,0] ],[[0.035226,0.24777,0.034077,0] ]]
+Rendering 3 frames... 
+-> starting 4 threads...done
+Done
+==================
+WARNING: ThreadSanitizer: data race (pid=29595)
+  Write of size 8 at 0x7d4c0000df90 by main thread:
+    #0 pthread_cond_destroy <null> (rtview.tsan.exe+0x000000491d0c)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d63)
+
+  Previous read of size 8 at 0x7d4c0000df90 by thread T4:
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Location is heap block of size 392 at 0x7d4c0000de40 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (rtview.tsan.exe+0x000000483878)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004621e5)
+
+  Thread T4 (tid=29600, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x491d0c) in pthread_cond_destroy
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29595)
+  Write of size 8 at 0x7d4c0000de48 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous atomic read of size 1 at 0x7d4c0000de48 by thread T1 (mutexes: write M4078415044992584):
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29597, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29595)
+  Write of size 8 at 0x7d4c0000dea0 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous write of size 4 at 0x7d4c0000dea0 by thread T1 (mutexes: write M4078415044992584):
+    #0 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ca)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29597, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+tx success: 15671319, aborts: 97205, unknown: 21403, capacity: 75255
+detector cnt: 545, escaped_tx_region_count: 0
+mem hook cnt: 0
+ThreadSanitizer: reported 3 warnings
+
+real	0m14.397s
+user	0m14.620s
+sys	0m2.130s
+this =0x7213e0
+PARSEC Benchmark Suite
+initializing LRT ray tracer ...
+default BVH builder : binnedalldimssavespace
+
+
+Options:  automove = ;
+    files = happy_buddha.obj;
+   frames = 3;
+ nthreads = 4;
+      res = [1920, 1080];
+
+Using memory framebuffer...
+Adding obj file: happy_buddha.obj
+Using auto camera...
+num nodes in scene graph 1
+adding 543522 vertices
+adding 1087425 triangles
+finalizing geometry
+vertices            543522 (6369.4 KB)
+triangles           1087425 (12743.3 KB)
+texture coordinates 0 (0 KB)
+No materials -> create dummy material
+building index
+using BVH builder default
+build time 2.74528
+done
+sceneAABB =[[[-0.04615,0.049738,-0.047301,0] ],[[0.035226,0.24777,0.034077,0] ]]
+Rendering 3 frames... 
+-> starting 4 threads...done
+Done
+==================
+WARNING: ThreadSanitizer: data race (pid=29603)
+  Write of size 8 at 0x7d4c0000df90 by main thread:
+    #0 pthread_cond_destroy <null> (rtview.tsan.exe+0x000000491d0c)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d63)
+
+  Previous read of size 8 at 0x7d4c0000df90 by thread T4:
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Location is heap block of size 392 at 0x7d4c0000de40 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (rtview.tsan.exe+0x000000483878)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004621e5)
+
+  Thread T4 (tid=29608, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x491d0c) in pthread_cond_destroy
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29603)
+  Write of size 8 at 0x7d4c0000de48 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous atomic read of size 1 at 0x7d4c0000de48 by thread T1 (mutexes: write M4078415044992584):
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29605, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+tx success: 15708498, aborts: 60018, unknown: 20140, capacity: 39565
+detector cnt: 311, escaped_tx_region_count: 0
+mem hook cnt: 0
+ThreadSanitizer: reported 2 warnings
+
+real	0m14.719s
+user	0m14.830s
+sys	0m3.610s
+this =0x7213e0
+PARSEC Benchmark Suite
+initializing LRT ray tracer ...
+default BVH builder : binnedalldimssavespace
+
+
+Options:  automove = ;
+    files = happy_buddha.obj;
+   frames = 3;
+ nthreads = 4;
+      res = [1920, 1080];
+
+Using memory framebuffer...
+Adding obj file: happy_buddha.obj
+Using auto camera...
+num nodes in scene graph 1
+adding 543522 vertices
+adding 1087425 triangles
+finalizing geometry
+vertices            543522 (6369.4 KB)
+triangles           1087425 (12743.3 KB)
+texture coordinates 0 (0 KB)
+No materials -> create dummy material
+building index
+using BVH builder default
+build time 2.74728
+done
+sceneAABB =[[[-0.04615,0.049738,-0.047301,0] ],[[0.035226,0.24777,0.034077,0] ]]
+Rendering 3 frames... 
+-> starting 4 threads...done
+Done
+==================
+WARNING: ThreadSanitizer: data race (pid=29611)
+  Write of size 8 at 0x7d4c0000df90 by main thread:
+    #0 pthread_cond_destroy <null> (rtview.tsan.exe+0x000000491d0c)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d63)
+
+  Previous read of size 8 at 0x7d4c0000df90 by thread T4:
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Location is heap block of size 392 at 0x7d4c0000de40 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (rtview.tsan.exe+0x000000483878)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004621e5)
+
+  Thread T4 (tid=29616, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x491d0c) in pthread_cond_destroy
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29611)
+  Write of size 8 at 0x7d4c0000de48 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous atomic read of size 1 at 0x7d4c0000de48 by thread T1 (mutexes: write M4078415044992584):
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29613, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+tx success: 15700048, aborts: 68354, unknown: 19902, capacity: 48173
+detector cnt: 276, escaped_tx_region_count: 0
+mem hook cnt: 0
+ThreadSanitizer: reported 2 warnings
+
+real	0m14.457s
+user	0m14.780s
+sys	0m2.560s
+this =0x7213e0
+PARSEC Benchmark Suite
+initializing LRT ray tracer ...
+default BVH builder : binnedalldimssavespace
+
+
+Options:  automove = ;
+    files = happy_buddha.obj;
+   frames = 3;
+ nthreads = 4;
+      res = [1920, 1080];
+
+Using memory framebuffer...
+Adding obj file: happy_buddha.obj
+Using auto camera...
+num nodes in scene graph 1
+adding 543522 vertices
+adding 1087425 triangles
+finalizing geometry
+vertices            543522 (6369.4 KB)
+triangles           1087425 (12743.3 KB)
+texture coordinates 0 (0 KB)
+No materials -> create dummy material
+building index
+using BVH builder default
+build time 2.74704
+done
+sceneAABB =[[[-0.04615,0.049738,-0.047301,0] ],[[0.035226,0.24777,0.034077,0] ]]
+Rendering 3 frames... 
+-> starting 4 threads...done
+Done
+==================
+WARNING: ThreadSanitizer: data race (pid=29619)
+  Write of size 8 at 0x7d4c0000df90 by main thread:
+    #0 pthread_cond_destroy <null> (rtview.tsan.exe+0x000000491d0c)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d63)
+
+  Previous read of size 8 at 0x7d4c0000df90 by thread T4:
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Location is heap block of size 392 at 0x7d4c0000de40 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (rtview.tsan.exe+0x000000483878)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004621e5)
+
+  Thread T4 (tid=29624, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x491d0c) in pthread_cond_destroy
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29619)
+  Write of size 8 at 0x7d4c0000de48 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous atomic read of size 1 at 0x7d4c0000de48 by thread T1 (mutexes: write M4078415044992584):
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29621, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+tx success: 15710341, aborts: 58177, unknown: 20900, capacity: 36787
+detector cnt: 485, escaped_tx_region_count: 1
+mem hook cnt: 0
+ThreadSanitizer: reported 2 warnings
+
+real	0m14.686s
+user	0m15.090s
+sys	0m3.020s
+this =0x7213e0
+PARSEC Benchmark Suite
+initializing LRT ray tracer ...
+default BVH builder : binnedalldimssavespace
+
+
+Options:  automove = ;
+    files = happy_buddha.obj;
+   frames = 3;
+ nthreads = 4;
+      res = [1920, 1080];
+
+Using memory framebuffer...
+Adding obj file: happy_buddha.obj
+Using auto camera...
+num nodes in scene graph 1
+adding 543522 vertices
+adding 1087425 triangles
+finalizing geometry
+vertices            543522 (6369.4 KB)
+triangles           1087425 (12743.3 KB)
+texture coordinates 0 (0 KB)
+No materials -> create dummy material
+building index
+using BVH builder default
+build time 2.74554
+done
+sceneAABB =[[[-0.04615,0.049738,-0.047301,0] ],[[0.035226,0.24777,0.034077,0] ]]
+Rendering 3 frames... 
+-> starting 4 threads...done
+Done
+==================
+WARNING: ThreadSanitizer: data race (pid=29627)
+  Write of size 8 at 0x7d4c0000df90 by main thread:
+    #0 pthread_cond_destroy <null> (rtview.tsan.exe+0x000000491d0c)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d63)
+
+  Previous read of size 8 at 0x7d4c0000df90 by thread T4:
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Location is heap block of size 392 at 0x7d4c0000de40 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (rtview.tsan.exe+0x000000483878)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004621e5)
+
+  Thread T4 (tid=29632, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x491d0c) in pthread_cond_destroy
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=29627)
+  Write of size 8 at 0x7d4c0000de48 by main thread:
+    #0 operator delete[](void*) <null> (rtview.tsan.exe+0x000000489a86)
+    #1 MultiThreadedTaskQueueServer::~MultiThreadedTaskQueueServer() <null> (rtview.tsan.exe+0x000000462d75)
+
+  Previous atomic read of size 1 at 0x7d4c0000de48 by thread T1 (mutexes: write M4078415044992584):
+    #0 pthread_cond_wait <null> (rtview.tsan.exe+0x000000491f01)
+    #1 MultiThreadedTaskQueueServer::threadFunc(void*) <null> (rtview.tsan.exe+0x0000004629ee)
+
+  Mutex M4078415044992584 is already destroyed.
+
+  Thread T1 (tid=29629, running) created by main thread at:
+    #0 pthread_create <null> (rtview.tsan.exe+0x00000048e586)
+    #1 MultiThreadedTaskQueueServer::createThreads(int) <null> (rtview.tsan.exe+0x0000004622cb)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/rtview.tsan.exe+0x489a86) in operator delete[](void*)
+==================
+tx success: 15687767, aborts: 80727, unknown: 19957, capacity: 60362
+detector cnt: 406, escaped_tx_region_count: 0
+mem hook cnt: 0
+ThreadSanitizer: reported 2 warnings
+
+real	0m14.278s
+user	0m14.560s
+sys	0m1.940s

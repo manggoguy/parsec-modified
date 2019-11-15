@@ -1,0 +1,1041 @@
+PARSEC Benchmark Suite
+Simulation                                        Reading simulation model : ./Face_Data/Eftychis_840k/Front_370k/face_simulation_4.tet
+Total particles = 80598
+Total tetrahedra = 372126
+muscles = 32
+attachments = 3
+
+  Frame 1                                         ==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04001db0e0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d04001db0e0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0e0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04001db0d0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d04001db0d0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0d0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04001db0c0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d04001db0c0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0c0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Read of size 4 at 0x7d7c0000f5fc by thread T1:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f5fc by thread T2 (mutexes: write M60):
+    #0 doOwnTasks(long, long) <null> (facesim.tsan.exe+0x000000416182)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M60 (0x7d7c0000f4b0) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T1 (tid=28281, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04003f86a0 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d04003f86a0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Location is heap block of size 12 at 0x7d04003f86a0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28283, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04003f8690 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d04003f8690 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Location is heap block of size 12 at 0x7d04003f8690 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28283, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28279)
+  Write of size 4 at 0x7d04003f8680 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d04003f8680 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Location is heap block of size 12 at 0x7d04003f8680 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28283, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28282, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+-tid:28283(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28282(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28281(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28283(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28282(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28283(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28281(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28283(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28281(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28279(htid=1) lv=0x10 pv=0xffffffef Timeout!
+tid:28282(htid=3) lv=0x10 pv=0xffffffef Timeout!
+tid:28281(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28282(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28283(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28281(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28282(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28283(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28281(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28279(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28283(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28281(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28279(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28283(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28281(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28279(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28281(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28279(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28281(htid=2) lv=0x10 pv=0xffffffef Timeout!
+tid:28283(htid=4) lv=0x4 pv=0xffffffeb Timeout!
+tid:28283(htid=4) lv=0x4 pv=0xffffffeb Timeout!
+
+  END Frame 1                                      63.2834 s
+SIMULATION                                          0.0000
+  FRAME                                            63.2834
+    ADB                                            63.2679
+      UPBS                                          9.0574
+        UPBS (FEM) - Initialize                     0.0597 s
+        UPBS (FEM) - Element Loop                   8.9976 s
+        UPBS (CPF)                                  0.0000 s
+      ADO                                          54.2106
+        ADO - Update collision bodies               0.0000 s
+        AOTSQ                                      54.2105
+          AOTSQ - Initialize                        0.0009 s
+          AOTSQ - NR loop                          54.2096
+            AOTSQ - NR loop - Initialize            0.0024 s
+            UCPF                                    0.6820 s
+            NRS                                    35.9147
+              NRS - Initialize                      0.0000 s
+              NRS - Boundary conditions 1           0.0014 s
+              UPBS                                  4.1928
+                UPBS (FEM) - Initialize             0.0000 s
+                UPBS (FEM) - Element Loop           4.1927 s
+                UPBS (CPF)                          0.0000 s
+              AFD (FEM)                             0.1205 s
+              AVIF                                  0.5669
+                AVIF (FEM)                          0.5632 s
+                AVIF (CPF)                          0.0036 s
+              NRS - Boundary conditions 2           0.0005 s
+              NRS - Compute residual                0.0070
+              NRS - Copy initial guess              0.0009 s
+            UPBS                                   17.0500
+              UPBS (FEM) - Initialize               0.0000 s
+              UPBS (FEM) - Element Loop            17.0500 s
+              UPBS (CPF)                            0.0000 s
+            AVIF                                    0.5519
+              AVIF (FEM)                            0.5486 s
+              AVIF (CPF)                            0.0033 s
+            AOTSQ - NR loop - Boundary conditions   0.0004 s
+            AOTSQ - NR loop - Compute residual      0.0050 s
+tx success: 12730060, aborts: 93112, unknown: 81116, capacity: 5513
+detector cnt: 5332, escaped_tx_region_count: 3
+mem hook cnt: 0
+==================
+WARNING: ThreadSanitizer: thread leak (pid=28279)
+  Thread T1 (tid=28281, finished) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  And 2 more similar thread leaks.
+
+SUMMARY: ThreadSanitizer: thread leak (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x5a2ea6) in pthread_create
+==================
+ThreadSanitizer: reported 8 warnings
+
+real	1m17.356s
+user	2m4.820s
+sys	1m55.570s
+PARSEC Benchmark Suite
+Simulation                                        Reading simulation model : ./Face_Data/Eftychis_840k/Front_370k/face_simulation_4.tet
+Total particles = 80598
+Total tetrahedra = 372126
+muscles = 32
+attachments = 3
+
+  Frame 1                                         ==================
+WARNING: ThreadSanitizer: data race (pid=28292)
+  Write of size 4 at 0x7d040013f500 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d040013f500 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f500 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28294, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28292)
+  Write of size 4 at 0x7d040013f4f0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d040013f4f0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4f0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28294, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28292)
+  Write of size 4 at 0x7d040013f4e0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d040013f4e0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4e0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28294, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28292)
+  Write of size 4 at 0x7d7c0000f2a4 by thread T1 (mutexes: write M59):
+    #0 doOwnTasks(long, long) <null> (facesim.tsan.exe+0x000000416182)
+
+  Previous read of size 4 at 0x7d7c0000f2a4 by main thread:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M59 (0x7d7c0000f158) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T1 (tid=28294, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416182) in doOwnTasks(long, long)
+==================
+-tid:28295(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28296(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28294(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28295(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28296(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28294(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28295(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28296(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28296(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28295(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28294(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28295(htid=3) lv=0x10 pv=0xffffffef Timeout!
+tid:28292(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28294(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28295(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28294(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28294(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28296(htid=4) lv=0x6 pv=0xfffffff9 Timeout!
+-tid:28295(htid=3) lv=0x6 pv=0xfffffff9 Timeout!
+-tid:28296(htid=4) lv=0x6 pv=0xfffffff9 Timeout!
+-tid:28295(htid=3) lv=0x6 pv=0xfffffff9 Timeout!
+tid:28294(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28292(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28296(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28294(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28292(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28296(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+
+  END Frame 1                                      58.3494 s
+SIMULATION                                          0.0000
+  FRAME                                            58.3494
+    ADB                                            58.3341
+      UPBS                                          8.9907
+        UPBS (FEM) - Initialize                     0.0598 s
+        UPBS (FEM) - Element Loop                   8.9308 s
+        UPBS (CPF)                                  0.0000 s
+      ADO                                          49.3433
+        ADO - Update collision bodies               0.0000 s
+        AOTSQ                                      49.3433
+          AOTSQ - Initialize                        0.0009 s
+          AOTSQ - NR loop                          49.3423
+            AOTSQ - NR loop - Initialize            0.0015 s
+            UCPF                                    0.6817 s
+            NRS                                    39.2932
+              NRS - Initialize                      0.0000 s
+              NRS - Boundary conditions 1           0.0013 s
+              UPBS                                  9.7402
+                UPBS (FEM) - Initialize             0.0000 s
+                UPBS (FEM) - Element Loop           9.7401 s
+                UPBS (CPF)                          0.0000 s
+              AFD (FEM)                             0.1191 s
+              AVIF                                  0.5399
+                AVIF (FEM)                          0.5360 s
+                AVIF (CPF)                          0.0037 s
+              NRS - Boundary conditions 2           0.0004 s
+              NRS - Compute residual                0.0069
+              NRS - Copy initial guess              0.0009 s
+            UPBS                                    9.0923
+              UPBS (FEM) - Initialize               0.0000 s
+              UPBS (FEM) - Element Loop             9.0922 s
+              UPBS (CPF)                            0.0000 s
+            AVIF                                    0.2681
+              AVIF (FEM)                            0.2649 s
+              AVIF (CPF)                            0.0032 s
+            AOTSQ - NR loop - Boundary conditions   0.0004 s
+            AOTSQ - NR loop - Compute residual      0.0021 s
+tx success: 12740357, aborts: 82220, unknown: 75874, capacity: 4498
+detector cnt: 960, escaped_tx_region_count: 1
+mem hook cnt: 0
+==================
+WARNING: ThreadSanitizer: thread leak (pid=28292)
+  Thread T1 (tid=28294, finished) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  And 2 more similar thread leaks.
+
+SUMMARY: ThreadSanitizer: thread leak (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x5a2ea6) in pthread_create
+==================
+ThreadSanitizer: reported 5 warnings
+
+real	1m11.277s
+user	2m0.160s
+sys	1m37.960s
+PARSEC Benchmark Suite
+Simulation                                        Reading simulation model : ./Face_Data/Eftychis_840k/Front_370k/face_simulation_4.tet
+Total particles = 80598
+Total tetrahedra = 372126
+muscles = 32
+attachments = 3
+
+  Frame 1                                         ==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d040013f500 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d040013f500 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f500 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28301, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d040013f4f0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d040013f4f0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4f0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28301, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d040013f4e0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d040013f4e0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4e0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28301, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d04003f86a0 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d04003f86a0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Location is heap block of size 12 at 0x7d04003f86a0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28303, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28302, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d04003f8690 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d04003f8690 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Location is heap block of size 12 at 0x7d04003f8690 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28303, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28302, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Write of size 4 at 0x7d04003f8680 by thread T3:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d04003f8680 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Location is heap block of size 12 at 0x7d04003f8680 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T3 (tid=28303, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T2 (tid=28302, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Read of size 4 at 0x7d7c0000f2a4 by thread T3:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f2a4 by thread T1 (mutexes: write M59):
+    #0 doOwnTasks(long, long) <null> (facesim.tsan.exe+0x000000416182)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M59 (0x7d7c0000f158) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T3 (tid=28303, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T1 (tid=28301, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28299)
+  Read of size 4 at 0x7d7c0000f954 by thread T1:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f954 by thread T3:
+    [failed to restore the stack]
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Thread T1 (tid=28301, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T3 (tid=28303, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+-tid:28302(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28303(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28301(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28302(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28303(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28301(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28302(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28303(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28302(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28303(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28303(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28301(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28299(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28303(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28301(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28299(htid=1) lv=0x8 pv=0xfffffff7 Timeout!
+tid:28303(htid=4) lv=0x2 pv=0xffffffe9 Timeout!
+tid:28301(htid=2) lv=0x2 pv=0xffffffe9 Timeout!
+-tid:28302(htid=3) lv=0x2 pv=0xffffffe9 Timeout!
+tid:28303(htid=4) lv=0x2 pv=0xffffffe9 Timeout!
+tid:28301(htid=2) lv=0x2 pv=0xffffffe9 Timeout!
+-tid:28302(htid=3) lv=0x2 pv=0xffffffe9 Timeout!
+-tid:28299(htid=1) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28303(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28302(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28299(htid=1) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28303(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28302(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28299(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28301(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28302(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28299(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28301(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28302(htid=3) lv=0x10 pv=0xffffffef Timeout!
+tid:28301(htid=2) lv=0x8 pv=0xfffffff3 Timeout!
+-tid:28299(htid=1) lv=0x8 pv=0xfffffff3 Timeout!
+-tid:28303(htid=4) lv=0x8 pv=0xfffffff3 Timeout!
+tid:28301(htid=2) lv=0x8 pv=0xfffffff3 Timeout!
+-tid:28299(htid=1) lv=0x8 pv=0xfffffff3 Timeout!
+-tid:28303(htid=4) lv=0x8 pv=0xfffffff3 Timeout!
+
+  END Frame 1                                      68.1295 s
+SIMULATION                                          0.0000
+  FRAME                                            68.1295
+    ADB                                            68.1141
+      UPBS                                          8.9711
+        UPBS (FEM) - Initialize                     0.0600 s
+        UPBS (FEM) - Element Loop                   8.9110 s
+        UPBS (CPF)                                  0.0000 s
+      ADO                                          59.1429
+        ADO - Update collision bodies               0.0000 s
+        AOTSQ                                      59.1429
+          AOTSQ - Initialize                        0.0009 s
+          AOTSQ - NR loop                          59.1419
+            AOTSQ - NR loop - Initialize            0.0024 s
+            UCPF                                    0.6831 s
+            NRS                                    40.5208
+              NRS - Initialize                      0.0000 s
+              NRS - Boundary conditions 1           0.0013 s
+              UPBS                                  8.8891
+                UPBS (FEM) - Initialize             0.0000 s
+                UPBS (FEM) - Element Loop           8.8890 s
+                UPBS (CPF)                          0.0000 s
+              AFD (FEM)                             0.1200 s
+              AVIF                                  0.5899
+                AVIF (FEM)                          0.5857 s
+                AVIF (CPF)                          0.0039 s
+              NRS - Boundary conditions 2           0.0004 s
+              NRS - Compute residual                0.0099
+              NRS - Copy initial guess              0.0009 s
+            UPBS                                   17.3814
+              UPBS (FEM) - Initialize               0.0000 s
+              UPBS (FEM) - Element Loop            17.3813 s
+              UPBS (CPF)                            0.0000 s
+            AVIF                                    0.5430
+              AVIF (FEM)                            0.5398 s
+              AVIF (CPF)                            0.0032 s
+            AOTSQ - NR loop - Boundary conditions   0.0004 s
+            AOTSQ - NR loop - Compute residual      0.0049 s
+tx success: 12741927, aborts: 81396, unknown: 75377, capacity: 3605
+detector cnt: 1441, escaped_tx_region_count: 1
+mem hook cnt: 0
+==================
+WARNING: ThreadSanitizer: thread leak (pid=28299)
+  Thread T1 (tid=28301, finished) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  And 2 more similar thread leaks.
+
+SUMMARY: ThreadSanitizer: thread leak (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x5a2ea6) in pthread_create
+==================
+ThreadSanitizer: reported 9 warnings
+
+real	1m21.062s
+user	2m12.820s
+sys	2m8.120s
+PARSEC Benchmark Suite
+Simulation                                        Reading simulation model : ./Face_Data/Eftychis_840k/Front_370k/face_simulation_4.tet
+Total particles = 80598
+Total tetrahedra = 372126
+muscles = 32
+attachments = 3
+
+  Frame 1                                         ==================
+WARNING: ThreadSanitizer: data race (pid=28320)
+  Write of size 4 at 0x7d040013f500 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d040013f500 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f500 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28322, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28320)
+  Write of size 4 at 0x7d040013f4f0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d040013f4f0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4f0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28322, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28320)
+  Write of size 4 at 0x7d040013f4e0 by thread T1:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d040013f4e0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d040013f4e0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T1 (tid=28322, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28320)
+  Read of size 4 at 0x7d7c0000f2a4 by main thread:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f2a4 by thread T1 (mutexes: write M59):
+    #0 doOwnTasks(long, long) <null> (facesim.tsan.exe+0x000000416182)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M59 (0x7d7c0000f158) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T1 (tid=28322, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28320)
+  Read of size 4 at 0x7d7c0000ef4c by thread T1:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000ef4c by main thread (mutexes: write M58, write M60):
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x00000041659c)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M58 (0x7d7c0000ee00) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Mutex M60 (0x7d7c0000f4b0) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T1 (tid=28322, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+-tid:28323(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28324(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28322(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28323(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28324(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28322(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28322(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28323(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28322(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28323(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28322(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28324(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28323(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28322(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28324(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28323(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+
+  END Frame 1                                      52.5257 s
+SIMULATION                                          0.0000
+  FRAME                                            52.5257
+    ADB                                            52.5103
+      UPBS                                         11.8544
+        UPBS (FEM) - Initialize                     0.0596 s
+        UPBS (FEM) - Element Loop                  11.7947 s
+        UPBS (CPF)                                  0.0000 s
+      ADO                                          40.6558
+        ADO - Update collision bodies               0.0000 s
+        AOTSQ                                      40.6558
+          AOTSQ - Initialize                        0.0009 s
+          AOTSQ - NR loop                          40.6548
+            AOTSQ - NR loop - Initialize            0.0027 s
+            UCPF                                    0.6810 s
+            NRS                                    30.7961
+              NRS - Initialize                      0.0000 s
+              NRS - Boundary conditions 1           0.0012 s
+              UPBS                                  1.2570
+                UPBS (FEM) - Initialize             0.0000 s
+                UPBS (FEM) - Element Loop           1.2570 s
+                UPBS (CPF)                          0.0000 s
+              AFD (FEM)                             0.0607 s
+              AVIF                                  0.5789
+                AVIF (FEM)                          0.5750 s
+                AVIF (CPF)                          0.0038 s
+              NRS - Boundary conditions 2           0.0004 s
+              NRS - Compute residual                0.0098
+              NRS - Copy initial guess              0.0009 s
+            UPBS                                    8.5818
+              UPBS (FEM) - Initialize               0.0000 s
+              UPBS (FEM) - Element Loop             8.5818 s
+              UPBS (CPF)                            0.0000 s
+            AVIF                                    0.5814
+              AVIF (FEM)                            0.5780 s
+              AVIF (CPF)                            0.0033 s
+            AOTSQ - NR loop - Boundary conditions   0.0004 s
+            AOTSQ - NR loop - Compute residual      0.0049 s
+tx success: 12740736, aborts: 82526, unknown: 76188, capacity: 3115
+detector cnt: 2284, escaped_tx_region_count: 4
+mem hook cnt: 0
+==================
+WARNING: ThreadSanitizer: thread leak (pid=28320)
+  Thread T1 (tid=28322, finished) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  And 2 more similar thread leaks.
+
+SUMMARY: ThreadSanitizer: thread leak (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x5a2ea6) in pthread_create
+==================
+ThreadSanitizer: reported 6 warnings
+
+real	1m6.267s
+user	1m56.550s
+sys	1m18.930s
+PARSEC Benchmark Suite
+Simulation                                        Reading simulation model : ./Face_Data/Eftychis_840k/Front_370k/face_simulation_4.tet
+Total particles = 80598
+Total tetrahedra = 372126
+muscles = 32
+attachments = 3
+
+  Frame 1                                         ==================
+WARNING: ThreadSanitizer: data race (pid=28327)
+  Write of size 4 at 0x7d04001db0e0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa2d)
+
+  Previous write of size 4 at 0x7d04001db0e0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0e0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28330, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa2d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28327)
+  Write of size 4 at 0x7d04001db0d0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048aa8d)
+
+  Previous write of size 4 at 0x7d04001db0d0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0d0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28330, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48aa8d) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28327)
+  Write of size 4 at 0x7d04001db0c0 by thread T2:
+    #0 PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) <null> (facesim.tsan.exe+0x00000048ab1c)
+
+  Previous write of size 4 at 0x7d04001db0c0 by main thread:
+    [failed to restore the stack]
+
+  Location is heap block of size 12 at 0x7d04001db0c0 allocated by main thread:
+    #0 operator new[](unsigned long) <null> (facesim.tsan.exe+0x000000598198)
+    #1 PhysBAM::ARRAY<float>::Resize_Array(int, bool, bool, float const&) <null> (facesim.tsan.exe+0x00000041d120)
+
+  Thread T2 (tid=28330, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x48ab1c) in PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28327)
+  Read of size 4 at 0x7d7c0000f954 by main thread:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f954 by thread T3 (mutexes: write M61):
+    #0 doOwnTasks(long, long) <null> (facesim.tsan.exe+0x000000416182)
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Mutex M61 (0x7d7c0000f808) created at:
+    #0 pthread_mutex_init <null> (facesim.tsan.exe+0x00000058b2d5)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041558f)
+
+  Thread T3 (tid=28331, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=28327)
+  Read of size 4 at 0x7d7c0000f2a4 by thread T2:
+    #0 stealTasks(long, long) <null> (facesim.tsan.exe+0x000000416298)
+
+  Previous write of size 4 at 0x7d7c0000f2a4 by thread T1:
+    [failed to restore the stack]
+
+  Location is heap block of size 3424 at 0x7d7c0000ee00 allocated by main thread:
+    #0 malloc <null> (facesim.tsan.exe+0x000000598608)
+    #1 taskQInit <null> (facesim.tsan.exe+0x00000041552c)
+
+  Thread T2 (tid=28330, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  Thread T1 (tid=28329, running) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x416298) in stealTasks(long, long)
+==================
+-tid:28331(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28330(htid=3) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28329(htid=2) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28331(htid=4) lv=0x2 pv=0xfffffffd Timeout!
+-tid:28331(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28329(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28331(htid=4) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28329(htid=2) lv=0x8 pv=0xfffffff7 Timeout!
+-tid:28330(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28329(htid=2) lv=0x10 pv=0xffffffef Timeout!
+tid:28327(htid=1) lv=0x10 pv=0xffffffef Timeout!
+-tid:28330(htid=3) lv=0x10 pv=0xffffffef Timeout!
+-tid:28329(htid=2) lv=0x10 pv=0xffffffef Timeout!
+-tid:28330(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+-tid:28330(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+tid:28327(htid=1) lv=0x4 pv=0xfffffffb Timeout!
+tid:28331(htid=4) lv=0x4 pv=0xfffffffb Timeout!
+tid:28330(htid=3) lv=0x4 pv=0xfffffffb Timeout!
+
+  END Frame 1                                      54.6864 s
+SIMULATION                                          0.0000
+  FRAME                                            54.6864
+    ADB                                            54.6711
+      UPBS                                          9.0224
+        UPBS (FEM) - Initialize                     0.0596 s
+        UPBS (FEM) - Element Loop                   8.9627 s
+        UPBS (CPF)                                  0.0000 s
+      ADO                                          45.6486
+        ADO - Update collision bodies               0.0000 s
+        AOTSQ                                      45.6486
+          AOTSQ - Initialize                        0.0009 s
+          AOTSQ - NR loop                          45.6476
+            AOTSQ - NR loop - Initialize            0.0015 s
+            UCPF                                    0.7548 s
+            NRS                                    39.6378
+              NRS - Initialize                      0.0000 s
+              NRS - Boundary conditions 1           0.0012 s
+              UPBS                                  9.6090
+                UPBS (FEM) - Initialize             0.0000 s
+                UPBS (FEM) - Element Loop           9.6089 s
+                UPBS (CPF)                          0.0000 s
+              AFD (FEM)                             0.1201 s
+              AVIF                                  0.5577
+                AVIF (FEM)                          0.5540 s
+                AVIF (CPF)                          0.0036 s
+              NRS - Boundary conditions 2           0.0004 s
+              NRS - Compute residual                0.0082
+              NRS - Copy initial guess              0.0009 s
+            UPBS                                    4.4025
+              UPBS (FEM) - Initialize               0.0000 s
+              UPBS (FEM) - Element Loop             4.4024 s
+              UPBS (CPF)                            0.0000 s
+            AVIF                                    0.8396
+              AVIF (FEM)                            0.8364 s
+              AVIF (CPF)                            0.0031 s
+            AOTSQ - NR loop - Boundary conditions   0.0006 s
+            AOTSQ - NR loop - Compute residual      0.0077 s
+tx success: 12741680, aborts: 81024, unknown: 75707, capacity: 3249
+detector cnt: 1174, escaped_tx_region_count: 0
+mem hook cnt: 0
+==================
+WARNING: ThreadSanitizer: thread leak (pid=28327)
+  Thread T1 (tid=28329, finished) created by main thread at:
+    #0 pthread_create <null> (facesim.tsan.exe+0x0000005a2ea6)
+    #1 taskQInit <null> (facesim.tsan.exe+0x000000415761)
+
+  And 2 more similar thread leaks.
+
+SUMMARY: ThreadSanitizer: thread leak (/home/lzto/benchmark/parsec-3.0/pkgs/apps/facesim/src/facesim.tsan.exe+0x5a2ea6) in pthread_create
+==================
+ThreadSanitizer: reported 6 warnings
+
+real	1m8.507s
+user	1m53.160s
+sys	1m30.650s

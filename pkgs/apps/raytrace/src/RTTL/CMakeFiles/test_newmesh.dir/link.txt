@@ -1,0 +1,1 @@
+/home/lzto/txgoto/llvm/build/bin/clang++   -DNDEBUG -D_MM_NO_ALIGN_CHECK -g -O1 -fPIC   CMakeFiles/test_newmesh.dir/test/api_newmesh/newmesh.o  -o ../bin/test_newmesh  -L/home/lzto/benchmark/parsec-3.0/pkgs/apps/raytrace/src/lib -rdynamic ../lib/libRTTL.a -lstdc++ -lpthread -lrt 

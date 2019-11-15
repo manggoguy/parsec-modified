@@ -1,0 +1,85 @@
+PARSEC Benchmark Suite
+Threading with Posix Threads
+Number of threads : 4
+Using dataset : sequenceB_4/
+4000 particles with 5 annealing layers
+
+Processing frame 0
+Processing frame 1
+Processing frame 2
+Processing frame 3
+tx success: 79371, aborts: 31407, unknown: 3448, capacity: 14858
+detector cnt: 10887, escaped_tx_region_count: 3
+mem hook cnt: 0
+
+real	0m8.390s
+user	0m13.760s
+sys	0m12.490s
+PARSEC Benchmark Suite
+Threading with Posix Threads
+Number of threads : 4
+Using dataset : sequenceB_4/
+4000 particles with 5 annealing layers
+
+Processing frame 0
+Processing frame 1
+Processing frame 2
+Processing frame 3
+tx success: 80980, aborts: 29430, unknown: 2881, capacity: 17534
+detector cnt: 6322, escaped_tx_region_count: 4
+mem hook cnt: 0
+
+real	0m5.087s
+user	0m12.050s
+sys	0m6.650s
+PARSEC Benchmark Suite
+Threading with Posix Threads
+Number of threads : 4
+Using dataset : sequenceB_4/
+4000 particles with 5 annealing layers
+
+Processing frame 0
+Processing frame 1
+Processing frame 2
+Processing frame 3
+tx success: 79470, aborts: 31228, unknown: 3409, capacity: 14460
+detector cnt: 11349, escaped_tx_region_count: 2
+mem hook cnt: 0
+
+real	0m8.683s
+user	0m14.190s
+sys	0m12.670s
+PARSEC Benchmark Suite
+Threading with Posix Threads
+Number of threads : 4
+Using dataset : sequenceB_4/
+4000 particles with 5 annealing layers
+
+Processing frame 0
+Processing frame 1
+Processing frame 2
+Processing frame 3
+tx success: 81584, aborts: 28047, unknown: 3114, capacity: 14431
+detector cnt: 6743, escaped_tx_region_count: 1
+mem hook cnt: 0
+
+real	0m5.319s
+user	0m13.540s
+sys	0m6.200s
+PARSEC Benchmark Suite
+Threading with Posix Threads
+Number of threads : 4
+Using dataset : sequenceB_4/
+4000 particles with 5 annealing layers
+
+Processing frame 0
+Processing frame 1
+Processing frame 2
+Processing frame 3
+tx success: 80516, aborts: 29527, unknown: 2531, capacity: 17423
+detector cnt: 6619, escaped_tx_region_count: 2
+mem hook cnt: 0
+
+real	0m5.019s
+user	0m12.380s
+sys	0m6.020s

@@ -1,0 +1,485 @@
+PARSEC Benchmark Suite
+read 16384 points
+==================
+WARNING: ThreadSanitizer: data race (pid=32084)
+  Write of size 4 at 0x7ffcb8c16cf0 by thread T3 (mutexes: write M9):
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 (streamcluster.tsan.exe+0x00000040b4da)
+
+  Previous read of size 4 at 0x7ffcb8c16cf0 by thread T1:
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:151 (streamcluster.tsan.exe+0x00000040b2cd)
+
+  Location is stack of main thread.
+
+  Mutex M9 (0x7ffcb8c16c90) created at:
+    #0 pthread_mutex_init <null> (streamcluster.tsan.exe+0x00000041f145)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:75 (streamcluster.tsan.exe+0x0000004099f6)
+
+  Thread T3 (tid=32088, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T1 (tid=32086, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 in parsec_barrier_wait(parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32084)
+  Write of size 1 at 0x0000006b2300 by thread T3:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Previous write of size 1 at 0x0000006b2300 by thread T4:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Location is global 'pspeedy(Points*, float, long*, int, parsec_barrier_t*)::open' of size 1 at 0x0000006b2300 (streamcluster.tsan.exe+0x0000006b2300)
+
+  Thread T3 (tid=32088, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T4 (tid=32089, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 in pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32084)
+  Read of size 8 at 0x0000006b2378 by thread T3:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 (streamcluster.tsan.exe+0x00000040853d)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x00000040853d)
+
+  Previous write of size 8 at 0x0000006b2378 by thread T1:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 (streamcluster.tsan.exe+0x000000408832)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x000000408832)
+
+  Location is global 'pgain(long, Points*, double, long*, int, parsec_barrier_t*)::gl_cost_of_opening_x' of size 8 at 0x0000006b2378 (streamcluster.tsan.exe+0x0000006b2378)
+
+  Thread T3 (tid=32088, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T1 (tid=32086, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 in pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32084)
+  Write of size 8 at 0x7d080000bfe0 by thread T5:
+    #0 free <null> (streamcluster.tsan.exe+0x000000431f76)
+    #1 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1615 (streamcluster.tsan.exe+0x0000004098df)
+    #2 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x0000004098df)
+
+  Previous read of size 8 at 0x7d080000bfe0 by thread T7:
+    #0 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1518 (streamcluster.tsan.exe+0x000000408c5c)
+    #1 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x000000408c5c)
+
+  Thread T5 (tid=32091, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T7 (tid=32093, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.tsan.exe+0x431f76) in __interceptor_free
+==================
+tx success: 970475, aborts: 171666, unknown: 18068, capacity: 3597
+detector cnt: 113289, escaped_tx_region_count: 375
+mem hook cnt: 0
+ThreadSanitizer: reported 4 warnings
+
+real	0m53.828s
+user	1m25.880s
+sys	1m20.370s
+PARSEC Benchmark Suite
+read 16384 points
+==================
+WARNING: ThreadSanitizer: data race (pid=32096)
+  Write of size 4 at 0x7ffe9df95510 by thread T1 (mutexes: write M9):
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 (streamcluster.tsan.exe+0x00000040b4da)
+
+  Previous read of size 4 at 0x7ffe9df95510 by thread T2:
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:151 (streamcluster.tsan.exe+0x00000040b2f7)
+
+  Location is stack of main thread.
+
+  Mutex M9 (0x7ffe9df954b0) created at:
+    #0 pthread_mutex_init <null> (streamcluster.tsan.exe+0x00000041f145)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:75 (streamcluster.tsan.exe+0x0000004099f6)
+
+  Thread T1 (tid=32098, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T2 (tid=32099, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 in parsec_barrier_wait(parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32096)
+  Write of size 1 at 0x0000006b2300 by thread T3:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Previous write of size 1 at 0x0000006b2300 by thread T2:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Location is global 'pspeedy(Points*, float, long*, int, parsec_barrier_t*)::open' of size 1 at 0x0000006b2300 (streamcluster.tsan.exe+0x0000006b2300)
+
+  Thread T3 (tid=32100, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T2 (tid=32099, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 in pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32096)
+  Write of size 8 at 0x0000006b2378 by thread T1:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 (streamcluster.tsan.exe+0x000000408832)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x000000408832)
+
+  Previous read of size 8 at 0x0000006b2378 by thread T3:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 (streamcluster.tsan.exe+0x00000040853d)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x00000040853d)
+
+  Location is global 'pgain(long, Points*, double, long*, int, parsec_barrier_t*)::gl_cost_of_opening_x' of size 8 at 0x0000006b2378 (streamcluster.tsan.exe+0x0000006b2378)
+
+  Thread T1 (tid=32098, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T3 (tid=32100, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 in pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32096)
+  Write of size 8 at 0x7d080000dfe0 by thread T5:
+    #0 free <null> (streamcluster.tsan.exe+0x000000431f76)
+    #1 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1615 (streamcluster.tsan.exe+0x0000004098df)
+    #2 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x0000004098df)
+
+  Previous read of size 8 at 0x7d080000dfe0 by thread T7:
+    #0 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1518 (streamcluster.tsan.exe+0x000000408c5c)
+    #1 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x000000408c5c)
+
+  Thread T5 (tid=32103, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T7 (tid=32105, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.tsan.exe+0x431f76) in __interceptor_free
+==================
+tx success: 913109, aborts: 125006, unknown: 18908, capacity: 3129
+detector cnt: 85117, escaped_tx_region_count: 130
+mem hook cnt: 0
+ThreadSanitizer: reported 4 warnings
+
+real	0m51.171s
+user	1m22.150s
+sys	1m18.170s
+PARSEC Benchmark Suite
+read 16384 points
+==================
+WARNING: ThreadSanitizer: data race (pid=32108)
+  Write of size 4 at 0x7ffd615840b0 by thread T2 (mutexes: write M9):
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 (streamcluster.tsan.exe+0x00000040b4da)
+
+  Previous read of size 4 at 0x7ffd615840b0 by thread T4:
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:151 (streamcluster.tsan.exe+0x00000040b2cd)
+
+  Location is stack of main thread.
+
+  Mutex M9 (0x7ffd61584050) created at:
+    #0 pthread_mutex_init <null> (streamcluster.tsan.exe+0x00000041f145)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:75 (streamcluster.tsan.exe+0x0000004099f6)
+
+  Thread T2 (tid=32111, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T4 (tid=32113, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:202 in parsec_barrier_wait(parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32108)
+  Write of size 1 at 0x0000006b2300 by thread T3:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Previous write of size 1 at 0x0000006b2300 by thread T2:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Location is global 'pspeedy(Points*, float, long*, int, parsec_barrier_t*)::open' of size 1 at 0x0000006b2300 (streamcluster.tsan.exe+0x0000006b2300)
+
+  Thread T3 (tid=32112, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T2 (tid=32111, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 in pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32108)
+  Write of size 8 at 0x0000006b2378 by thread T1:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 (streamcluster.tsan.exe+0x000000408832)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x000000408832)
+
+  Previous read of size 8 at 0x0000006b2378 by thread T2:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 (streamcluster.tsan.exe+0x00000040853d)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x00000040853d)
+
+  Location is global 'pgain(long, Points*, double, long*, int, parsec_barrier_t*)::gl_cost_of_opening_x' of size 8 at 0x0000006b2378 (streamcluster.tsan.exe+0x0000006b2378)
+
+  Thread T1 (tid=32110, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T2 (tid=32111, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 in pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32108)
+  Write of size 8 at 0x7d080000cfe0 by thread T5:
+    #0 free <null> (streamcluster.tsan.exe+0x000000431f76)
+    #1 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1615 (streamcluster.tsan.exe+0x0000004098df)
+    #2 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x0000004098df)
+
+  Previous read of size 8 at 0x7d080000cfe0 by thread T7:
+    #0 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1518 (streamcluster.tsan.exe+0x000000408c5c)
+    #1 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x000000408c5c)
+
+  Thread T5 (tid=32119, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T7 (tid=32121, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.tsan.exe+0x431f76) in __interceptor_free
+==================
+tx success: 865354, aborts: 127055, unknown: 20113, capacity: 3026
+detector cnt: 85346, escaped_tx_region_count: 166
+mem hook cnt: 0
+ThreadSanitizer: reported 4 warnings
+
+real	0m52.763s
+user	1m22.590s
+sys	1m20.730s
+PARSEC Benchmark Suite
+read 16384 points
+==================
+WARNING: ThreadSanitizer: data race (pid=32124)
+  Write of size 4 at 0x7ffdc4395f60 by thread T2 (mutexes: write M9):
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:172 (streamcluster.tsan.exe+0x00000040b490)
+
+  Previous read of size 4 at 0x7ffdc4395f60 by thread T3:
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:184 (streamcluster.tsan.exe+0x00000040b3dc)
+
+  Location is stack of main thread.
+
+  Mutex M9 (0x7ffdc4395f00) created at:
+    #0 pthread_mutex_init <null> (streamcluster.tsan.exe+0x00000041f145)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:75 (streamcluster.tsan.exe+0x0000004099f6)
+
+  Thread T2 (tid=32127, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T3 (tid=32128, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:172 in parsec_barrier_wait(parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32124)
+  Write of size 1 at 0x0000006b2300 by thread T1:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Previous write of size 1 at 0x0000006b2300 by thread T4:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Location is global 'pspeedy(Points*, float, long*, int, parsec_barrier_t*)::open' of size 1 at 0x0000006b2300 (streamcluster.tsan.exe+0x0000006b2300)
+
+  Thread T1 (tid=32126, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T4 (tid=32129, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 in pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32124)
+  Read of size 8 at 0x0000006b2378 by thread T4:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 (streamcluster.tsan.exe+0x00000040853d)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x00000040853d)
+
+  Previous write of size 8 at 0x0000006b2378 by thread T1:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 (streamcluster.tsan.exe+0x000000408832)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x000000408832)
+
+  Location is global 'pgain(long, Points*, double, long*, int, parsec_barrier_t*)::gl_cost_of_opening_x' of size 8 at 0x0000006b2378 (streamcluster.tsan.exe+0x0000006b2378)
+
+  Thread T4 (tid=32129, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T1 (tid=32126, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 in pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32124)
+  Write of size 8 at 0x7d080000dfe0 by thread T5:
+    #0 free <null> (streamcluster.tsan.exe+0x000000431f76)
+    #1 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1615 (streamcluster.tsan.exe+0x0000004098df)
+    #2 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x0000004098df)
+
+  Previous read of size 8 at 0x7d080000dfe0 by thread T7:
+    #0 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1518 (streamcluster.tsan.exe+0x000000408c5c)
+    #1 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x000000408c5c)
+
+  Thread T5 (tid=32132, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T7 (tid=32134, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.tsan.exe+0x431f76) in __interceptor_free
+==================
+tx success: 905185, aborts: 172248, unknown: 17692, capacity: 3397
+detector cnt: 114943, escaped_tx_region_count: 271
+mem hook cnt: 0
+ThreadSanitizer: reported 4 warnings
+
+real	0m52.508s
+user	1m24.760s
+sys	1m18.400s
+PARSEC Benchmark Suite
+read 16384 points
+==================
+WARNING: ThreadSanitizer: data race (pid=32137)
+  Write of size 4 at 0x7ffe84a9e130 by thread T2 (mutexes: write M9):
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:172 (streamcluster.tsan.exe+0x00000040b490)
+
+  Previous read of size 4 at 0x7ffe84a9e130 by thread T3:
+    #0 parsec_barrier_wait(parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:184 (streamcluster.tsan.exe+0x00000040b3dc)
+
+  Location is stack of main thread.
+
+  Mutex M9 (0x7ffe84a9e0d0) created at:
+    #0 pthread_mutex_init <null> (streamcluster.tsan.exe+0x00000041f145)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:75 (streamcluster.tsan.exe+0x0000004099f6)
+
+  Thread T2 (tid=32140, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T3 (tid=32141, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/parsec_barrier.cpp:172 in parsec_barrier_wait(parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32137)
+  Write of size 1 at 0x0000006b2300 by thread T2:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Previous write of size 1 at 0x0000006b2300 by thread T4:
+    #0 pspeedy(Points*, float, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 (streamcluster.tsan.exe+0x000000407767)
+
+  Location is global 'pspeedy(Points*, float, long*, int, parsec_barrier_t*)::open' of size 1 at 0x0000006b2300 (streamcluster.tsan.exe+0x0000006b2300)
+
+  Thread T2 (tid=32140, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T4 (tid=32142, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:803 in pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32137)
+  Write of size 8 at 0x0000006b2378 by thread T1:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 (streamcluster.tsan.exe+0x000000408832)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x000000408832)
+
+  Previous read of size 8 at 0x0000006b2378 by thread T3:
+    #0 pgain(long, Points*, double, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1120 (streamcluster.tsan.exe+0x00000040853d)
+    #1 pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1235 (streamcluster.tsan.exe+0x00000040853d)
+
+  Location is global 'pgain(long, Points*, double, long*, int, parsec_barrier_t*)::gl_cost_of_opening_x' of size 8 at 0x0000006b2378 (streamcluster.tsan.exe+0x0000006b2378)
+
+  Thread T1 (tid=32139, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T3 (tid=32141, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1147 in pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=32137)
+  Write of size 8 at 0x7d080000dfe0 by thread T5:
+    #0 free <null> (streamcluster.tsan.exe+0x000000431f76)
+    #1 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1615 (streamcluster.tsan.exe+0x0000004098df)
+    #2 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x0000004098df)
+
+  Previous read of size 8 at 0x7d080000dfe0 by thread T7:
+    #0 pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1518 (streamcluster.tsan.exe+0x000000408c5c)
+    #1 localSearchSub(void*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1693 (streamcluster.tsan.exe+0x000000408c5c)
+
+  Thread T5 (tid=32144, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+  Thread T7 (tid=32146, running) created by main thread at:
+    #0 pthread_create <null> (streamcluster.tsan.exe+0x000000436d16)
+    #1 localSearch(Points*, long, long, long*) /home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.cpp:1727 (streamcluster.tsan.exe+0x000000409aca)
+
+SUMMARY: ThreadSanitizer: data race (/home/lzto/benchmark/parsec-3.0/pkgs/kernels/streamcluster/src/streamcluster.tsan.exe+0x431f76) in __interceptor_free
+==================
+tx success: 894993, aborts: 127687, unknown: 20067, capacity: 2727
+detector cnt: 86895, escaped_tx_region_count: 153
+mem hook cnt: 0
+ThreadSanitizer: reported 4 warnings
+
+real	0m54.321s
+user	1m24.000s
+sys	1m22.240s

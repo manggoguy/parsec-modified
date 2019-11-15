@@ -1,0 +1,160 @@
+PARSEC Benchmark Suite
+transaction number is 990002
+1548
+13483
+46649
+131381
+415489
+1239344
+2985564
+5696308
+8709873
+10789491
+10902648
+9011183
+6094236
+3374161
+1530954
+564958
+165173
+36535
+5727
+578
+33
+1
+the data preparation cost 1.799799 seconds, the FPgrowth cost 26.215348 seconds
+tx success: 39049490, aborts: 9341, unknown: 9231, capacity: 102
+detector cnt: 8, escaped_tx_region_count: 0
+mem hook cnt: 0
+
+real	0m28.023s
+user	0m27.900s
+sys	0m0.110s
+PARSEC Benchmark Suite
+transaction number is 990002
+1548
+13483
+46649
+131381
+415489
+1239344
+2985564
+5696308
+8709873
+10789491
+10902648
+9011183
+6094236
+3374161
+1530954
+564958
+165173
+36535
+5727
+578
+33
+1
+the data preparation cost 1.762875 seconds, the FPgrowth cost 26.255260 seconds
+tx success: 39049713, aborts: 9118, unknown: 9012, capacity: 104
+detector cnt: 2, escaped_tx_region_count: 0
+mem hook cnt: 0
+
+real	0m28.026s
+user	0m27.950s
+sys	0m0.060s
+PARSEC Benchmark Suite
+transaction number is 990002
+1548
+13483
+46649
+131381
+415489
+1239344
+2985564
+5696308
+8709873
+10789491
+10902648
+9011183
+6094236
+3374161
+1530954
+564958
+165173
+36535
+5727
+578
+33
+1
+the data preparation cost 1.784488 seconds, the FPgrowth cost 26.223948 seconds
+tx success: 39049742, aborts: 9089, unknown: 8991, capacity: 96
+detector cnt: 2, escaped_tx_region_count: 0
+mem hook cnt: 0
+
+real	0m28.016s
+user	0m27.900s
+sys	0m0.100s
+PARSEC Benchmark Suite
+transaction number is 990002
+1548
+13483
+46649
+131381
+415489
+1239344
+2985564
+5696308
+8709873
+10789491
+10902648
+9011183
+6094236
+3374161
+1530954
+564958
+165173
+36535
+5727
+578
+33
+1
+the data preparation cost 1.783042 seconds, the FPgrowth cost 26.263930 seconds
+tx success: 39049724, aborts: 9107, unknown: 9008, capacity: 99
+detector cnt: 0, escaped_tx_region_count: 0
+mem hook cnt: 0
+
+real	0m28.055s
+user	0m27.890s
+sys	0m0.150s
+PARSEC Benchmark Suite
+transaction number is 990002
+1548
+13483
+46649
+131381
+415489
+1239344
+2985564
+5696308
+8709873
+10789491
+10902648
+9011183
+6094236
+3374161
+1530954
+564958
+165173
+36535
+5727
+578
+33
+1
+the data preparation cost 1.784182 seconds, the FPgrowth cost 26.244021 seconds
+tx success: 39049733, aborts: 9098, unknown: 8998, capacity: 100
+detector cnt: 0, escaped_tx_region_count: 0
+mem hook cnt: 0
+
+real	0m28.036s
+user	0m27.930s
+sys	0m0.090s
